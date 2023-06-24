@@ -2,6 +2,9 @@
 
 name: Deploy to GitHub Pages
 
+permissions:
+  id-token: write
+
 # Controls when the workflow will run
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -20,7 +23,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: ralismark/ralismark.github.io
-          
+
       - name: Jekyll build
         run: |
           docker build . --tag=image
